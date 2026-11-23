@@ -422,7 +422,7 @@ function renderSampling(d) {
     { data: d.fixed_rate.map((v) => v * 100), color: '#7f8fa3', label: '固定' },
     { data: d.boost_share.map((v) => v * 100), color: '#e0a13a', label: '触发器全量' },
   ], { yLabel: '%', xMax: d.t_us[d.t_us.length - 1], triggers: d.triggers,
-       tUs: d.t_us, log: false });
+       tUs: d.t_us });
   const ntrig = d.triggers.reduce((a, b) => a + b, 0);
   const budget = (d.budget_bytes_per_s || 0) / 1e6;
   const actual = (d.actual_bytes_per_s || 0) / 1e6;

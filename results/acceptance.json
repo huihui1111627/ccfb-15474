@@ -1,0 +1,1267 @@
+{
+  "scenario": {
+    "name": "dc-incident",
+    "duration_s": 2.0,
+    "packets": 847134,
+    "flows": 10134,
+    "transactions": 4329,
+    "slow_transactions": 68,
+    "faults": {
+      "congestion_episodes": 1,
+      "impaired_links": 2,
+      "clock_biases": {
+        "spine-0": 80.0,
+        "super-spine-1": -60.0
+      }
+    },
+    "int_budget_bytes": 72,
+    "trigger_bytes_per_s": 534329.4391471803,
+    "max_records": 4
+  },
+  "budgets": [
+    {
+      "budget_bytes_per_s": 600000.0,
+      "adaptive": {
+        "policy": "adaptive",
+        "volume_bytes_per_s": 597974.0,
+        "volume_mbps": 4.783792,
+        "sampled_packets": 16067,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 35,
+          "capture_rate": 0.5147058823529411
+        },
+        "params": {
+          "base_prob": 0.001,
+          "n_rules": 2835
+        },
+        "boost_packets": 14387,
+        "triggers": 197,
+        "mark_seconds": 0.79,
+        "ingest_seconds": 1.9,
+        "attribution_txns": 36,
+        "attribution_accuracy": 1.0,
+        "attribution_txns_big": 31,
+        "attribution_accuracy_big": 1.0,
+        "attribution_txns_net": 31,
+        "attribution_accuracy_net": 1.0,
+        "delay_mae_us": 2.8463864390119737,
+        "delay_p95_abs_us": 6.282368887215853,
+        "delay_samples": 56817,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 11654,
+            "true_mean_us": 6623.34,
+            "est_mean_us": 6626.83,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16015.4
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 4302,
+            "true_mean_us": 9.1,
+            "est_mean_us": 10.91,
+            "true_p99_us": 130.41,
+            "est_p99_us": 134.04
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 4056,
+            "true_mean_us": 16.32,
+            "est_mean_us": 17.0,
+            "true_p99_us": 441.78,
+            "est_p99_us": 443.59
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 8,
+            "records": 1334,
+            "true_mean_us": 0.15,
+            "est_mean_us": 0.15,
+            "true_p99_us": 1.77,
+            "est_p99_us": 1.74
+          },
+          {
+            "switch": "leaf-0-0",
+            "out_port": 7,
+            "records": 1194,
+            "true_mean_us": 3498.88,
+            "est_mean_us": 3502.99,
+            "true_p99_us": 10941.69,
+            "est_p99_us": 10947.14
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 1160,
+            "true_mean_us": 0.16,
+            "est_mean_us": 0.16,
+            "true_p99_us": 1.89,
+            "est_p99_us": 1.89
+          },
+          {
+            "switch": "leaf-2-0",
+            "out_port": 9,
+            "records": 974,
+            "true_mean_us": 0.15,
+            "est_mean_us": 0.15,
+            "true_p99_us": 1.72,
+            "est_p99_us": 1.74
+          },
+          {
+            "switch": "leaf-1-1",
+            "out_port": 9,
+            "records": 966,
+            "true_mean_us": 0.23,
+            "est_mean_us": 0.23,
+            "true_p99_us": 2.99,
+            "est_p99_us": 2.97
+          },
+          {
+            "switch": "leaf-1-1",
+            "out_port": 8,
+            "records": 960,
+            "true_mean_us": 0.14,
+            "est_mean_us": 0.14,
+            "true_p99_us": 1.61,
+            "est_p99_us": 1.64
+          },
+          {
+            "switch": "leaf-2-1",
+            "out_port": 8,
+            "records": 954,
+            "true_mean_us": 0.14,
+            "est_mean_us": 0.14,
+            "true_p99_us": 1.87,
+            "est_p99_us": 1.84
+          },
+          {
+            "switch": "leaf-3-0",
+            "out_port": 8,
+            "records": 952,
+            "true_mean_us": 0.16,
+            "est_mean_us": 0.16,
+            "true_p99_us": 1.65,
+            "est_p99_us": 1.64
+          },
+          {
+            "switch": "leaf-1-0",
+            "out_port": 8,
+            "records": 946,
+            "true_mean_us": 0.14,
+            "est_mean_us": 0.14,
+            "true_p99_us": 1.63,
+            "est_p99_us": 1.64
+          }
+        ],
+        "collector": {
+          "packets": 16067,
+          "records": 56817,
+          "expected_records": 92985,
+          "truncation_loss": 0.3889659622519761,
+          "flows": 2122,
+          "txns": 889,
+          "wire_bytes": 1067412,
+          "complete_paths": 4011
+        },
+        "clock_median_abs_error_us": 0.847211892853895
+      },
+      "fixed": {
+        "policy": "fixed 1.87%",
+        "volume_bytes_per_s": 597994.0,
+        "volume_mbps": 4.783952,
+        "sampled_packets": 16003,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 10,
+          "capture_rate": 0.14705882352941177
+        },
+        "params": {
+          "base_prob": 0.018722882438886167
+        },
+        "boost_packets": 0,
+        "triggers": 0,
+        "mark_seconds": 0.06,
+        "ingest_seconds": 2.2,
+        "attribution_txns": 11,
+        "attribution_accuracy": 1.0,
+        "attribution_txns_big": 5,
+        "attribution_accuracy_big": 1.0,
+        "attribution_txns_net": 5,
+        "attribution_accuracy_net": 1.0,
+        "delay_mae_us": 3.9193117667188813,
+        "delay_p95_abs_us": 7.439333404664264,
+        "delay_samples": 56991,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 2953,
+            "true_mean_us": 9783.75,
+            "est_mean_us": 9787.24,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16005.9
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 9,
+            "records": 1424,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.11,
+            "est_p99_us": 0.1
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 8,
+            "records": 1379,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.08,
+            "est_p99_us": 0.08
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 8,
+            "records": 1368,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.18,
+            "est_p99_us": 0.19
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 9,
+            "records": 1336,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.09,
+            "est_p99_us": 0.09
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 9,
+            "records": 1320,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.14,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 9,
+            "records": 1311,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.14,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 1289,
+            "true_mean_us": 34.57,
+            "est_mean_us": 36.5,
+            "true_p99_us": 653.94,
+            "est_p99_us": 669.9
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 8,
+            "records": 1240,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.1,
+            "est_p99_us": 0.1
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 1239,
+            "true_mean_us": 0.08,
+            "est_mean_us": 0.08,
+            "true_p99_us": 1.23,
+            "est_p99_us": 1.23
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 8,
+            "records": 1201,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.11,
+            "est_p99_us": 0.1
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 1111,
+            "true_mean_us": 17.28,
+            "est_mean_us": 18.37,
+            "true_p99_us": 297.57,
+            "est_p99_us": 303.28
+          }
+        ],
+        "collector": {
+          "packets": 16003,
+          "records": 56991,
+          "expected_records": 94467,
+          "truncation_loss": 0.3967099622090253,
+          "flows": 2783,
+          "txns": 1328,
+          "wire_bytes": 1067964,
+          "complete_paths": 3511
+        },
+        "clock_median_abs_error_us": 1.0191699445392297
+      },
+      "optimizer": {
+        "base_prob": 0.001,
+        "steady_bytes_per_s": 35783.1088528286,
+        "trigger_bytes_per_s": 534329.4391471803,
+        "expected_bytes_per_s": 570112.5480000089,
+        "expected_slow_capture_per_s": 0.6405944134059175,
+        "n_rules": 2835
+      },
+      "n_rules": 2835
+    },
+    {
+      "budget_bytes_per_s": 1000000.0,
+      "adaptive": {
+        "policy": "adaptive",
+        "volume_bytes_per_s": 953280.0,
+        "volume_mbps": 7.62624,
+        "sampled_packets": 25563,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 46,
+          "capture_rate": 0.6764705882352942
+        },
+        "params": {
+          "base_prob": 0.006915750249145279,
+          "n_rules": 2938
+        },
+        "boost_packets": 14387,
+        "triggers": 197,
+        "mark_seconds": 0.78,
+        "ingest_seconds": 3.04,
+        "attribution_txns": 47,
+        "attribution_accuracy": 0.7872340425531915,
+        "attribution_txns_big": 31,
+        "attribution_accuracy_big": 1.0,
+        "attribution_txns_net": 31,
+        "attribution_accuracy_net": 1.0,
+        "delay_mae_us": 2.7516351870991875,
+        "delay_p95_abs_us": 4.648324899800924,
+        "delay_samples": 90712,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 12557,
+            "true_mean_us": 6830.79,
+            "est_mean_us": 6830.79,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16000.0
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 4752,
+            "true_mean_us": 9.48,
+            "est_mean_us": 20.17,
+            "true_p99_us": 132.76,
+            "est_p99_us": 153.6
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 4609,
+            "true_mean_us": 17.31,
+            "est_mean_us": 17.31,
+            "true_p99_us": 444.8,
+            "est_p99_us": 444.83
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 8,
+            "records": 2576,
+            "true_mean_us": 0.11,
+            "est_mean_us": 0.11,
+            "true_p99_us": 1.53,
+            "est_p99_us": 1.54
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 2454,
+            "true_mean_us": 0.11,
+            "est_mean_us": 0.11,
+            "true_p99_us": 1.72,
+            "est_p99_us": 1.74
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 9,
+            "records": 1818,
+            "true_mean_us": 0.01,
+            "est_mean_us": 0.01,
+            "true_p99_us": 0.2,
+            "est_p99_us": 0.2
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 8,
+            "records": 1696,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.2,
+            "est_p99_us": 0.2
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 9,
+            "records": 1664,
+            "true_mean_us": 0.01,
+            "est_mean_us": 0.01,
+            "true_p99_us": 0.2,
+            "est_p99_us": 0.2
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 9,
+            "records": 1596,
+            "true_mean_us": 0.01,
+            "est_mean_us": 0.01,
+            "true_p99_us": 0.23,
+            "est_p99_us": 0.23
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 9,
+            "records": 1578,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "leaf-0-0",
+            "out_port": 8,
+            "records": 1510,
+            "true_mean_us": 0.04,
+            "est_mean_us": 0.04,
+            "true_p99_us": 1.0,
+            "est_p99_us": 1.02
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 8,
+            "records": 1450,
+            "true_mean_us": 0.01,
+            "est_mean_us": 0.01,
+            "true_p99_us": 0.21,
+            "est_p99_us": 0.2
+          }
+        ],
+        "collector": {
+          "packets": 25563,
+          "records": 90712,
+          "expected_records": 148861,
+          "truncation_loss": 0.3906261546006006,
+          "flows": 3950,
+          "txns": 2476,
+          "wire_bytes": 1702056,
+          "complete_paths": 6180
+        },
+        "clock_median_abs_error_us": 99.09722484485656
+      },
+      "fixed": {
+        "policy": "fixed 2.99%",
+        "volume_bytes_per_s": 953262.0,
+        "volume_mbps": 7.626096,
+        "sampled_packets": 25524,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 16,
+          "capture_rate": 0.23529411764705882
+        },
+        "params": {
+          "base_prob": 0.02989009749904871
+        },
+        "boost_packets": 0,
+        "triggers": 0,
+        "mark_seconds": 0.07,
+        "ingest_seconds": 2.78,
+        "attribution_txns": 17,
+        "attribution_accuracy": 0.9411764705882353,
+        "attribution_txns_big": 8,
+        "attribution_accuracy_big": 1.0,
+        "attribution_txns_net": 8,
+        "attribution_accuracy_net": 1.0,
+        "delay_mae_us": 2.64018075871387,
+        "delay_p95_abs_us": 6.071431149055967,
+        "delay_samples": 90813,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 4784,
+            "true_mean_us": 9754.29,
+            "est_mean_us": 9754.3,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16000.0
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 9,
+            "records": 2305,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.15,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 8,
+            "records": 2171,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.16
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 8,
+            "records": 2161,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.09,
+            "est_p99_us": 0.09
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 9,
+            "records": 2149,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.18,
+            "est_p99_us": 0.18
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 9,
+            "records": 2118,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.13,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 9,
+            "records": 2093,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.07,
+            "est_p99_us": 0.08
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 2045,
+            "true_mean_us": 37.1,
+            "est_mean_us": 38.72,
+            "true_p99_us": 654.99,
+            "est_p99_us": 660.14
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 2014,
+            "true_mean_us": 0.08,
+            "est_mean_us": 0.08,
+            "true_p99_us": 1.13,
+            "est_p99_us": 1.13
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 8,
+            "records": 1940,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.12,
+            "est_p99_us": 0.12
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 8,
+            "records": 1905,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.14,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 1802,
+            "true_mean_us": 16.16,
+            "est_mean_us": 17.88,
+            "true_p99_us": 279.54,
+            "est_p99_us": 283.77
+          }
+        ],
+        "collector": {
+          "packets": 25524,
+          "records": 90813,
+          "expected_records": 150474,
+          "truncation_loss": 0.3964871007615933,
+          "flows": 3246,
+          "txns": 1772,
+          "wire_bytes": 1702332,
+          "complete_paths": 5637
+        },
+        "clock_median_abs_error_us": 16.412964334343222
+      },
+      "optimizer": {
+        "base_prob": 0.006915750249145279,
+        "steady_bytes_per_s": 231327.87399044225,
+        "trigger_bytes_per_s": 534329.4391471803,
+        "expected_bytes_per_s": 765657.3131376226,
+        "expected_slow_capture_per_s": 2.26455687990624,
+        "n_rules": 2938
+      },
+      "n_rules": 2938
+    },
+    {
+      "budget_bytes_per_s": 2000000.0,
+      "adaptive": {
+        "policy": "adaptive",
+        "volume_bytes_per_s": 1861896.0,
+        "volume_mbps": 14.895168,
+        "sampled_packets": 49872,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 60,
+          "capture_rate": 0.8823529411764706
+        },
+        "params": {
+          "base_prob": 0.022029627881804303,
+          "n_rules": 2938
+        },
+        "boost_packets": 14387,
+        "triggers": 197,
+        "mark_seconds": 0.72,
+        "ingest_seconds": 5.47,
+        "attribution_txns": 60,
+        "attribution_accuracy": 0.8333333333333334,
+        "attribution_txns_big": 31,
+        "attribution_accuracy_big": 1.0,
+        "attribution_txns_net": 31,
+        "attribution_accuracy_net": 1.0,
+        "delay_mae_us": 3.302497162188973,
+        "delay_p95_abs_us": 5.820746778557918,
+        "delay_samples": 177324,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 14959,
+            "true_mean_us": 7284.22,
+            "est_mean_us": 7284.22,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16000.0
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 5960,
+            "true_mean_us": 20.15,
+            "est_mean_us": 21.98,
+            "true_p99_us": 448.79,
+            "est_p99_us": 451.21
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 5930,
+            "true_mean_us": 9.91,
+            "est_mean_us": 11.79,
+            "true_p99_us": 139.18,
+            "est_p99_us": 143.66
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 8,
+            "records": 5782,
+            "true_mean_us": 0.08,
+            "est_mean_us": 0.08,
+            "true_p99_us": 1.25,
+            "est_p99_us": 1.23
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 5625,
+            "true_mean_us": 0.09,
+            "est_mean_us": 0.09,
+            "true_p99_us": 1.49,
+            "est_p99_us": 1.51
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 9,
+            "records": 4069,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 8,
+            "records": 3801,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.14,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 9,
+            "records": 3784,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.2,
+            "est_p99_us": 0.2
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 9,
+            "records": 3742,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.14,
+            "est_p99_us": 0.14
+          },
+          {
+            "switch": "leaf-0-0",
+            "out_port": 8,
+            "records": 3742,
+            "true_mean_us": 0.05,
+            "est_mean_us": 0.05,
+            "true_p99_us": 1.04,
+            "est_p99_us": 1.02
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 9,
+            "records": 3734,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.15,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 8,
+            "records": 3548,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.18,
+            "est_p99_us": 0.18
+          }
+        ],
+        "collector": {
+          "packets": 49872,
+          "records": 177324,
+          "expected_records": 291804,
+          "truncation_loss": 0.3923181313484394,
+          "flows": 5242,
+          "txns": 3766,
+          "wire_bytes": 3324816,
+          "complete_paths": 11712
+        },
+        "clock_median_abs_error_us": 17.168278853240878
+      },
+      "fixed": {
+        "policy": "fixed 5.87%",
+        "volume_bytes_per_s": 1861874.0,
+        "volume_mbps": 14.894992,
+        "sampled_packets": 49811,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 27,
+          "capture_rate": 0.39705882352941174
+        },
+        "params": {
+          "base_prob": 0.05867749263876676
+        },
+        "boost_packets": 0,
+        "triggers": 0,
+        "mark_seconds": 0.09,
+        "ingest_seconds": 5.38,
+        "attribution_txns": 29,
+        "attribution_accuracy": 0.8275862068965517,
+        "attribution_txns_big": 15,
+        "attribution_accuracy_big": 0.9333333333333333,
+        "attribution_txns_net": 15,
+        "attribution_accuracy_net": 0.9333333333333333,
+        "delay_mae_us": 2.9044879528476613,
+        "delay_p95_abs_us": 8.175582602981779,
+        "delay_samples": 177483,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 9568,
+            "true_mean_us": 9689.14,
+            "est_mean_us": 9689.14,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16000.0
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 9,
+            "records": 4446,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 8,
+            "records": 4334,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.18,
+            "est_p99_us": 0.18
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 9,
+            "records": 4252,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.14,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 9,
+            "records": 4097,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.13,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 8,
+            "records": 4075,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.07,
+            "est_p99_us": 0.08
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 9,
+            "records": 4039,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.15,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 3997,
+            "true_mean_us": 36.38,
+            "est_mean_us": 37.14,
+            "true_p99_us": 681.82,
+            "est_p99_us": 683.69
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 3937,
+            "true_mean_us": 0.08,
+            "est_mean_us": 0.08,
+            "true_p99_us": 1.32,
+            "est_p99_us": 1.29
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 8,
+            "records": 3836,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 8,
+            "records": 3715,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 3652,
+            "true_mean_us": 16.24,
+            "est_mean_us": 17.61,
+            "true_p99_us": 291.95,
+            "est_p99_us": 295.61
+          }
+        ],
+        "collector": {
+          "packets": 49811,
+          "records": 177483,
+          "expected_records": 293967,
+          "truncation_loss": 0.3962485585116696,
+          "flows": 3980,
+          "txns": 2504,
+          "wire_bytes": 3325260,
+          "complete_paths": 10983
+        },
+        "clock_median_abs_error_us": 19.09437455925818
+      },
+      "optimizer": {
+        "base_prob": 0.022029627881804303,
+        "steady_bytes_per_s": 719188.6894118434,
+        "trigger_bytes_per_s": 534329.4391471803,
+        "expected_bytes_per_s": 1253518.1285590236,
+        "expected_slow_capture_per_s": 6.41354373111133,
+        "n_rules": 2938
+      },
+      "n_rules": 2938
+    },
+    {
+      "budget_bytes_per_s": 4000000.0,
+      "adaptive": {
+        "policy": "adaptive",
+        "volume_bytes_per_s": 3672168.0,
+        "volume_mbps": 29.377344,
+        "sampled_packets": 98340,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 68,
+          "capture_rate": 1.0
+        },
+        "params": {
+          "base_prob": 0.05225738314712233,
+          "n_rules": 2938
+        },
+        "boost_packets": 14387,
+        "triggers": 197,
+        "mark_seconds": 0.74,
+        "ingest_seconds": 11.11,
+        "attribution_txns": 68,
+        "attribution_accuracy": 0.8676470588235294,
+        "attribution_txns_big": 31,
+        "attribution_accuracy_big": 1.0,
+        "attribution_txns_net": 31,
+        "attribution_accuracy_net": 1.0,
+        "delay_mae_us": 3.7946870514251865,
+        "delay_p95_abs_us": 10.764099976901168,
+        "delay_samples": 349788,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 19804,
+            "true_mean_us": 7831.9,
+            "est_mean_us": 7834.09,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16005.5
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 8,
+            "records": 12190,
+            "true_mean_us": 0.08,
+            "est_mean_us": 0.08,
+            "true_p99_us": 1.14,
+            "est_p99_us": 1.13
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 12177,
+            "true_mean_us": 0.08,
+            "est_mean_us": 0.08,
+            "true_p99_us": 1.26,
+            "est_p99_us": 1.23
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 8656,
+            "true_mean_us": 22.24,
+            "est_mean_us": 23.27,
+            "true_p99_us": 559.8,
+            "est_p99_us": 563.95
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 9,
+            "records": 8408,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 8406,
+            "true_mean_us": 10.34,
+            "est_mean_us": 11.48,
+            "true_p99_us": 149.04,
+            "est_p99_us": 155.99
+          },
+          {
+            "switch": "leaf-0-0",
+            "out_port": 8,
+            "records": 8308,
+            "true_mean_us": 0.05,
+            "est_mean_us": 0.05,
+            "true_p99_us": 1.07,
+            "est_p99_us": 1.02
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 9,
+            "records": 8197,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 8,
+            "records": 7947,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.1,
+            "est_p99_us": 0.1
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 9,
+            "records": 7899,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.13,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 9,
+            "records": 7854,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.12,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 8,
+            "records": 7850,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.14,
+            "est_p99_us": 0.14
+          }
+        ],
+        "collector": {
+          "packets": 98340,
+          "records": 349788,
+          "expected_records": 575904,
+          "truncation_loss": 0.392627937989665,
+          "flows": 5772,
+          "txns": 4296,
+          "wire_bytes": 6557616,
+          "complete_paths": 22968
+        },
+        "clock_median_abs_error_us": 0.2804445663352324
+      },
+      "fixed": {
+        "policy": "fixed 11.60%",
+        "volume_bytes_per_s": 3672166.0,
+        "volume_mbps": 29.377328,
+        "sampled_packets": 98317,
+        "capture": {
+          "slow_txns": 68,
+          "captured": 40,
+          "capture_rate": 0.5882352941176471
+        },
+        "params": {
+          "base_prob": 0.11604049571791886
+        },
+        "boost_packets": 0,
+        "triggers": 0,
+        "mark_seconds": 0.04,
+        "ingest_seconds": 12.79,
+        "attribution_txns": 42,
+        "attribution_accuracy": 0.8571428571428571,
+        "attribution_txns_big": 21,
+        "attribution_accuracy_big": 0.9523809523809523,
+        "attribution_txns_net": 21,
+        "attribution_accuracy_net": 0.9523809523809523,
+        "delay_mae_us": 3.617654408390084,
+        "delay_p95_abs_us": 10.435461573925068,
+        "delay_samples": 349849,
+        "per_hop": [
+          {
+            "switch": "leaf-0-0",
+            "out_port": 3,
+            "records": 18856,
+            "true_mean_us": 9679.39,
+            "est_mean_us": 9679.39,
+            "true_p99_us": 16000.0,
+            "est_p99_us": 16000.0
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 9,
+            "records": 8703,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.15,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 8,
+            "records": 8548,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.18,
+            "est_p99_us": 0.18
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 9,
+            "records": 8485,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.15,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 9,
+            "records": 8138,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.13,
+            "est_p99_us": 0.13
+          },
+          {
+            "switch": "spine-2",
+            "out_port": 9,
+            "records": 8072,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "agg-0-0",
+            "out_port": 0,
+            "records": 7955,
+            "true_mean_us": 38.47,
+            "est_mean_us": 39.18,
+            "true_p99_us": 702.57,
+            "est_p99_us": 704.27
+          },
+          {
+            "switch": "spine-0",
+            "out_port": 8,
+            "records": 7950,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.07,
+            "est_p99_us": 0.08
+          },
+          {
+            "switch": "leaf-0-1",
+            "out_port": 9,
+            "records": 7681,
+            "true_mean_us": 0.08,
+            "est_mean_us": 0.08,
+            "true_p99_us": 1.25,
+            "est_p99_us": 1.23
+          },
+          {
+            "switch": "spine-3",
+            "out_port": 8,
+            "records": 7414,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "spine-1",
+            "out_port": 8,
+            "records": 7313,
+            "true_mean_us": 0.0,
+            "est_mean_us": 0.0,
+            "true_p99_us": 0.16,
+            "est_p99_us": 0.15
+          },
+          {
+            "switch": "agg-0-1",
+            "out_port": 0,
+            "records": 7163,
+            "true_mean_us": 16.19,
+            "est_mean_us": 17.7,
+            "true_p99_us": 285.73,
+            "est_p99_us": 289.7
+          }
+        ],
+        "collector": {
+          "packets": 98317,
+          "records": 349849,
+          "expected_records": 579271,
+          "truncation_loss": 0.39605297002611906,
+          "flows": 4818,
+          "txns": 3342,
+          "wire_bytes": 6557796,
+          "complete_paths": 21843
+        },
+        "clock_median_abs_error_us": 19.600860259145094
+      },
+      "optimizer": {
+        "base_prob": 0.05225738314712233,
+        "steady_bytes_per_s": 1694910.3202546462,
+        "trigger_bytes_per_s": 534329.4391471803,
+        "expected_bytes_per_s": 2229239.7594018267,
+        "expected_slow_capture_per_s": 14.71151743352151,
+        "n_rules": 2938
+      },
+      "n_rules": 2938
+    }
+  ],
+  "control": {
+    "seed": 7,
+    "packets": 677646,
+    "delay_mae_us": 5.555070538048288,
+    "delay_p95_abs_us": 10.657611521975983,
+    "true_hop_queue_p99_us": 513.199175312986,
+    "volume_bytes_per_s": 925380.0
+  }
+}

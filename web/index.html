@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>带内遥测控制台 · In-band Telemetry Console</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <div>
+      <h1>带内遥测控制台</h1>
+      <p class="sub">In-band Network Telemetry · 数据中心织物观测</p>
+    </div>
+  </div>
+  <div class="statusbar">
+    <span id="status-pill" class="pill">正在构建仿真…</span>
+    <label class="ctl">种子
+      <input id="seed" type="number" value="7" min="1" max="999">
+    </label>
+    <label class="ctl">预算 MB/s
+      <input id="budget" type="number" value="0.8" min="0.05" max="50" step="0.05">
+    </label>
+    <button id="rebuild" class="btn">重新仿真</button>
+  </div>
+</header>
+
+<main>
+  <!-- KPI strip -->
+  <section class="kpis" id="kpis"></section>
+
+  <section class="grid-2">
+    <!-- topology heatmap -->
+    <div class="card">
+      <div class="card-head">
+        <h2>队列深度热力图</h2>
+        <div class="card-tools">
+          <input id="time-slider" type="range" min="0" max="2000000" step="20000" value="1000000">
+          <span id="time-label" class="mono">t = 1.000 s</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <svg id="topo" viewBox="0 0 1240 700" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="legend">
+          <span>队列时延</span>
+          <div class="scale"><i style="--c:#2b3a4a"></i><i style="--c:#2b6cb0"></i><i style="--c:#2f855a"></i><i style="--c:#b7791f"></i><i style="--c:#c53030"></i></div>
+          <span class="mono">0 → ≥4 ms</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- queue time series -->
+    <div class="card">
+      <div class="card-head">
+        <h2>全网最大队列深度</h2>
+        <div class="card-tools"><span class="mono muted">20 ms 分桶</span></div>
+      </div>
+      <div class="card-body"><canvas id="queue-chart" height="300"></canvas></div>
+    </div>
+  </section>
+
+  <section class="grid-2">
+    <!-- slow requests -->
+    <div class="card">
+      <div class="card-head">
+        <h2>慢请求</h2>
+        <div class="card-tools">
+          <label class="chk"><input id="only-captured" type="checkbox" checked> 仅显示已捕获</label>
+          <span id="slow-count" class="mono muted"></span>
+        </div>
+      </div>
+      <div class="card-body scroll">
+        <table class="tbl" id="slow-table">
+          <thead><tr>
+            <th>事务</th><th>业务</th><th>端到端</th><th>网络时延</th>
+            <th>定位跳</th><th>真实跳</th><th>排队</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- sampling -->
+    <div class="card">
+      <div class="card-head">
+        <h2>采样比例</h2>
+        <div class="card-tools"><span id="sampling-summary" class="mono muted"></span></div>
+      </div>
+      <div class="card-body"><canvas id="sampling-chart" height="300"></canvas></div>
+    </div>
+  </section>
+
+  <!-- attribution detail -->
+  <section class="card" id="detail-card">
+    <div class="card-head">
+      <h2>逐跳时延分解 <span id="detail-txn" class="mono muted"></span></h2>
+      <div class="card-tools"><span id="detail-verdict"></span></div>
+    </div>
+    <div class="card-body">
+      <div id="detail-empty" class="empty">从上方慢请求列表中选择一条，查看逐跳分解与同端口并发流。</div>
+      <div id="detail-body" class="hidden">
+        <div class="path-line" id="detail-path"></div>
+        <canvas id="hop-chart" height="230"></canvas>
+        <div class="grid-2 tight">
+          <div>
+            <h3>逐跳明细</h3>
+            <table class="tbl compact" id="hop-table">
+              <thead><tr><th>#</th><th>交换机</th><th>入/出端口</th><th>平均排队</th><th>驻留</th><th>队列字节</th><th>状态</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div>
+            <h3>同端口并发流（拥塞来源）</h3>
+            <table class="tbl compact" id="coflow-table">
+              <thead><tr><th>业务</th><th>源 → 目的</th><th>包数</th><th>累计排队</th></tr></thead>
+              <tbody></tbody>
+            </table>
+            <h3 class="mt">附近触发器</h3>
+            <div id="trigger-list" class="chips"></div>
+            <h3 class="mt">响应包时间线</h3>
+            <canvas id="timeline-chart" height="120"></canvas>
+            <div id="timeline" class="mono muted" style="font-size:12px;margin-top:8px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- evaluation -->
+  <section class="card">
+    <div class="card-head">
+      <h2>验收对比</h2>
+      <div class="card-tools"><span id="eval-sub" class="mono muted"></span></div>
+    </div>
+    <div class="card-body">
+      <div class="grid-3" id="eval-cards"></div>
+      <div class="grid-2 tight">
+        <div><h3>逐跳时延估计 vs 仿真真值</h3><canvas id="delay-chart" height="260"></canvas></div>
+        <div><h3>收集器数据量构成</h3><div id="volume-breakdown"></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

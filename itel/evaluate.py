@@ -240,11 +240,6 @@ def sweep_fixed(art: RunArtifacts, target_bytes_per_s: float,
     return FixedSampling(0.5 * (lo + hi))
 
 
-def calibrate(art: RunArtifacts) -> dict:
-    strata = calibration_strata(art.dp, art.scenario.duration_us)
-    return {"strata": strata}
-
-
 def run_acceptance(sc: Optional[Scenario] = None,
                    budgets_bytes_per_s: Sequence[float] = (80_000.0, 250_000.0, 800_000.0),
                    include_collector: bool = True,

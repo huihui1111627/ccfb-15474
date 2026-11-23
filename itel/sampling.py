@@ -127,15 +127,11 @@ class StratifiedSampling(Policy):
     use_trigger = False
 
     def __init__(self, base: float, class_mult: Dict[str, float],
-                 path_mult: Dict[str, float], name: str = "stratified",
-                 trigger_budget_share: float = 0.0):
+                 path_mult: Dict[str, float], name: str = "stratified"):
         self.base = float(base)
         self.class_mult = dict(class_mult)
         self.path_mult = dict(path_mult)
         self.name = name
-        #: fraction of the volume budget the policy reserves for switch
-        #: triggers, as opposed to steady-state stratified sampling
-        self.trigger_budget_share = float(trigger_budget_share)
 
     def probabilities(self, dp: DataPlane, tcfg: TelemetryConfig):
         tr = dp.traffic
